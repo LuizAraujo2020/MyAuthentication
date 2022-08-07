@@ -39,6 +39,10 @@ struct LoginView: View {
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .padding()
         .disabled(loginVM.showProgressView)
+        .alert(item: $loginVM.error) { error in
+            Alert(title: Text("Invalid Login"), message:
+                Text(error.localizedDescription))
+        }
     }
 }
 
