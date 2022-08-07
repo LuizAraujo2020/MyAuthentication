@@ -21,6 +21,18 @@
 		6F2FAB6D289F29A00032C092 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB3F289F299E0032C092 /* Persistence.swift */; };
 		6F2FAB6E289F29A00032C092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F2FAB40289F29A00032C092 /* Assets.xcassets */; };
 		6F2FAB6F289F29A00032C092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F2FAB40289F29A00032C092 /* Assets.xcassets */; };
+		6F2FAB81289F2AA50032C092 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB80289F2AA50032C092 /* Credentials.swift */; };
+		6F2FAB82289F2AAB0032C092 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB80289F2AA50032C092 /* Credentials.swift */; };
+		6F2FAB85289F2B020032C092 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB84289F2B020032C092 /* APIService.swift */; };
+		6F2FAB86289F2B020032C092 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB84289F2B020032C092 /* APIService.swift */; };
+		6F2FAB88289F2B1E0032C092 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB87289F2B1E0032C092 /* UIApplication+Extension.swift */; };
+		6F2FAB89289F2B1E0032C092 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB87289F2B1E0032C092 /* UIApplication+Extension.swift */; };
+		6F2FAB8B289F2F2C0032C092 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB8A289F2F2C0032C092 /* LoginViewModel.swift */; };
+		6F2FAB8C289F2F2C0032C092 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB8A289F2F2C0032C092 /* LoginViewModel.swift */; };
+		6F2FAB8F289F333C0032C092 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB8E289F333C0032C092 /* LoginView.swift */; };
+		6F2FAB90289F333C0032C092 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB8E289F333C0032C092 /* LoginView.swift */; };
+		6F2FAB92289F35FF0032C092 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB91289F35FF0032C092 /* Authentication.swift */; };
+		6F2FAB93289F35FF0032C092 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FAB91289F35FF0032C092 /* Authentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +67,12 @@
 		6F2FAB5E289F29A00032C092 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F2FAB62289F29A00032C092 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		6F2FAB64289F29A00032C092 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		6F2FAB80289F2AA50032C092 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		6F2FAB84289F2B020032C092 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		6F2FAB87289F2B1E0032C092 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		6F2FAB8A289F2F2C0032C092 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		6F2FAB8E289F333C0032C092 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		6F2FAB91289F35FF0032C092 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +122,11 @@
 			isa = PBXGroup;
 			children = (
 				6F2FAB3D289F299E0032C092 /* MyAuthenticationApp.swift */,
-				6F2FAB3E289F299E0032C092 /* ContentView.swift */,
-				6F2FAB3F289F299E0032C092 /* Persistence.swift */,
+				6F2FAB7E289F2A810032C092 /* Views */,
+				6F2FAB7F289F2A920032C092 /* Models */,
+				6F2FAB83289F2ABF0032C092 /* Services */,
 				6F2FAB40289F29A00032C092 /* Assets.xcassets */,
+				6F2FAB3F289F299E0032C092 /* Persistence.swift */,
 				6F2FAB3B289F299E0032C092 /* MyAuthentication.xcdatamodeld */,
 			);
 			path = Shared;
@@ -147,6 +167,42 @@
 				6F2FAB64289F29A00032C092 /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		6F2FAB7E289F2A810032C092 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6F2FAB3E289F299E0032C092 /* ContentView.swift */,
+				6F2FAB8D289F332A0032C092 /* Login */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6F2FAB7F289F2A920032C092 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6F2FAB80289F2AA50032C092 /* Credentials.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6F2FAB83289F2ABF0032C092 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6F2FAB84289F2B020032C092 /* APIService.swift */,
+				6F2FAB87289F2B1E0032C092 /* UIApplication+Extension.swift */,
+				6F2FAB91289F35FF0032C092 /* Authentication.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6F2FAB8D289F332A0032C092 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6F2FAB8A289F2F2C0032C092 /* LoginViewModel.swift */,
+				6F2FAB8E289F333C0032C092 /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,8 +365,14 @@
 			files = (
 				6F2FAB66289F29A00032C092 /* MyAuthentication.xcdatamodeld in Sources */,
 				6F2FAB6C289F29A00032C092 /* Persistence.swift in Sources */,
+				6F2FAB81289F2AA50032C092 /* Credentials.swift in Sources */,
+				6F2FAB92289F35FF0032C092 /* Authentication.swift in Sources */,
+				6F2FAB8F289F333C0032C092 /* LoginView.swift in Sources */,
 				6F2FAB68289F29A00032C092 /* MyAuthenticationApp.swift in Sources */,
+				6F2FAB8B289F2F2C0032C092 /* LoginViewModel.swift in Sources */,
+				6F2FAB85289F2B020032C092 /* APIService.swift in Sources */,
 				6F2FAB6A289F29A00032C092 /* ContentView.swift in Sources */,
+				6F2FAB88289F2B1E0032C092 /* UIApplication+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,8 +382,14 @@
 			files = (
 				6F2FAB67289F29A00032C092 /* MyAuthentication.xcdatamodeld in Sources */,
 				6F2FAB6D289F29A00032C092 /* Persistence.swift in Sources */,
+				6F2FAB82289F2AAB0032C092 /* Credentials.swift in Sources */,
+				6F2FAB93289F35FF0032C092 /* Authentication.swift in Sources */,
+				6F2FAB90289F333C0032C092 /* LoginView.swift in Sources */,
 				6F2FAB69289F29A00032C092 /* MyAuthenticationApp.swift in Sources */,
+				6F2FAB8C289F2F2C0032C092 /* LoginViewModel.swift in Sources */,
+				6F2FAB86289F2B020032C092 /* APIService.swift in Sources */,
 				6F2FAB6B289F29A00032C092 /* ContentView.swift in Sources */,
+				6F2FAB89289F2B1E0032C092 /* UIApplication+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

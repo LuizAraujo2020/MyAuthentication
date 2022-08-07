@@ -10,7 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
+    @EnvironmentObject var authentication: Authentication
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
@@ -39,7 +39,14 @@ struct ContentView: View {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Log Out") {
+                        authentication.updateValidation(success: false)
+                    }
+                }
             }
+            .navigationTitle("My Secure App")
             Text("Select an item")
         }
     }

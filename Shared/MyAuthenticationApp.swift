@@ -10,11 +10,17 @@ import SwiftUI
 @main
 struct MyAuthenticationApp: App {
     let persistenceController = PersistenceController.shared
-
+    @StateObject var authentication = Authentication()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            if authentication.isValidated {
+                    ContentView()
+                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                        .environmentObject(authentication)
+            } else {
+                LoginView()
+                    .environmentObject(authentication)
+            }
         }
     }
 }
