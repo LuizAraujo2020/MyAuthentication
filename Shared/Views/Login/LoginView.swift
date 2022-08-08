@@ -20,6 +20,7 @@ struct LoginView: View {
             if loginVM.showProgressView {
                 ProgressView()
             }
+            
             Button("Log in") {
                 loginVM.login { success in
                     authentication.updateValidation(success: success)
@@ -27,6 +28,27 @@ struct LoginView: View {
             }
             .disabled(loginVM.loginDisabled)
             .padding(.bottom, 20)
+            
+            if authentication.biometricType() != .none {
+                Button {
+                    authentication.requestBiometricUnlock { (result: Result<Credentials, Authentication.AuthenticationError>) in
+                        switch result {
+                        case .success(let credentials):
+                            loginVM.credentials = credentials
+                            loginVM.login { success in
+                                authentication.updateValidation(success: success)
+                            }
+                        case .failure(let error):
+                            loginVM.error = error
+                        }
+                    }
+                    
+                } label: {
+                    Image(systemName: authentication.biometricType() == .face ? "faceid" : "touchid")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                }
+            }
             
             Image("LaunchScreen")
                 .onTapGesture {
@@ -40,8 +62,17 @@ struct LoginView: View {
         .padding()
         .disabled(loginVM.showProgressView)
         .alert(item: $loginVM.error) { error in
-            Alert(title: Text("Invalid Login"), message:
-                Text(error.localizedDescription))
+            if error == .credentialsNotSaved {
+                return Alert(title: Text("Credentials Not Saved"),
+                             message: Text(error.localizedDescription),
+                             primaryButton: .default(Text("OK"), action: {
+                                loginVM.storeCredentialsNext = true
+                            }),
+                             secondaryButton: .cancel())
+            } else {
+                return Alert(title: Text("Invalid Login"), message:
+                    Text(error.localizedDescription))
+            }
         }
     }
 }
@@ -49,5 +80,34 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+            .environmentObject(Authentication())
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

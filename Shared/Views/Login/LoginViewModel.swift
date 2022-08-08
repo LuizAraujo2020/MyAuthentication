@@ -14,6 +14,7 @@ class LoginViewModel: ObservableObject {
     /// Disappears once the authentication process is complete
     @Published var showProgressView = false
     @Published var error: Authentication.AuthenticationError?
+    @Published var storeCredentialsNext = false
     
     var loginDisabled: Bool {
         credentials.email.isEmpty || credentials.password.isEmpty
@@ -28,6 +29,11 @@ class LoginViewModel: ObservableObject {
             
             switch result {
             case .success:
+                if storeCredentialsNext {
+                    if KeychainStorage.saveCredentials(credentials) {
+                        storeCredentialsNext = false
+                    }
+                }
                 completion(true)
             case .failure(let authError):
                 credentials = Credentials()
